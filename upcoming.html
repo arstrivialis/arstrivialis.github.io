@@ -1,40 +1,15 @@
 ---
 layout: default
-title: Home
+title: Upcoming
 ---
 
-{% if page.url == "/" %}
-
-<!-- Featured
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured</span></h2>
-    </div>
-    <div class="row">
-
-    {% for post in site.posts %}
-
-        {% if post.featured == true %}
-
-            {% include featuredbox.html %}
-
-        {% endif %}
-
-    {% endfor %}
-
-    </div>
-</section>
-
-{% endif %}
-
-<!-- Posts Index
+<!-- Index of up-coming blog posts
 ================================================== -->
 <section class="recent-posts">
 
     <div class="section-title">
 
-        <h2><span>All Stories</span></h2>
+        <h2><span>Posts que vem por aí...</span></h2>
 
     </div>
 
@@ -42,7 +17,11 @@ title: Home
 
         {% for post in paginator.posts %}
 
-        {% include postbox.html %}
+          {% if post.categories contains 'NotReady' %}
+
+            {% include postbox.html %}
+
+          {% endif %}
 
         {% endfor %}
 
